@@ -2,7 +2,9 @@ import { useCounterStore } from '@/store'
 import { Button, Grid, Typography } from '@mui/material'
 
 const Counter = () => {
-  const { count, increment, decrement } = useCounterStore((state) => state)
+  const { count, increment, decrement, deep, normalInc, normalDec } = useCounterStore(
+    (state) => state
+  )
 
   return (
     <Grid container flexDirection="column" spacing={2}>
@@ -18,6 +20,25 @@ const Counter = () => {
           </Grid>
           <Grid item>
             <Button variant="contained" color="secondary" onClick={decrement}>
+              Decrement
+            </Button>
+          </Grid>
+        </Grid>
+      </Grid>
+      <Grid item>
+        <Typography variant="h5">
+          Deeply nested object (with immer): {deep.nested.obj.count}
+        </Typography>
+      </Grid>
+      <Grid item>
+        <Grid container spacing={2}>
+          <Grid item>
+            <Button variant="contained" color="primary" onClick={normalInc}>
+              Increment
+            </Button>
+          </Grid>
+          <Grid item>
+            <Button variant="contained" color="secondary" onClick={normalDec}>
               Decrement
             </Button>
           </Grid>
