@@ -1,5 +1,6 @@
-import { useCounterStore } from '@/store'
+import { useCounterStore, usePostsStore } from '@/store'
 import { Button, Grid, Typography } from '@mui/material'
+import { useEffect } from 'react'
 
 export default function Home() {
   const { count, increment, decrement } = useCounterStore((state) => state)
