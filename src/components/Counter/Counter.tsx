@@ -1,3 +1,4 @@
+import React from 'react'
 import { useCounterStore } from '@/store'
 import { Button, Grid, Typography } from '@mui/material'
 
@@ -20,25 +21,6 @@ const Counter = () => {
           </Grid>
           <Grid item>
             <Button variant="contained" color="secondary" onClick={decrement}>
-              Decrement
-            </Button>
-          </Grid>
-        </Grid>
-      </Grid>
-      <Grid item>
-        <Typography variant="h5">
-          Deeply nested object (with immer): {deep.nested.obj.count}
-        </Typography>
-      </Grid>
-      <Grid item>
-        <Grid container spacing={2}>
-          <Grid item>
-            <Button variant="contained" color="primary" onClick={normalInc}>
-              Increment
-            </Button>
-          </Grid>
-          <Grid item>
-            <Button variant="contained" color="secondary" onClick={normalDec}>
               Decrement
             </Button>
           </Grid>

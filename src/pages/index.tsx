@@ -1,7 +1,7 @@
-import Counter from '@/components/Counter'
-import Post from '@/components/Post'
-import MainLayout from '@/layout'
 import { Grid } from '@mui/material'
+import MainLayout from '@/layout'
+import Counter from '@/components/Counter/Counter'
+import Post from '@/components/Post'
 
 export default function Home() {
   return (
