@@ -1,8 +1,6 @@
 import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
-import { ThemeActions, ThemeMode, ThemeState } from './theme.interface'
-
-type ThemeStore = ThemeState & ThemeActions
+import { ThemeMode, ThemeStore } from './theme.interface'
 
 export const useThemeStore = create<ThemeStore, [['zustand/persist', ThemeStore]]>(
   // persist: persist state for save value into localStorage or sessionStorage

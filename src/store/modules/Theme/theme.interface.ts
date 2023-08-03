@@ -3,11 +3,13 @@ export enum ThemeMode {
   DARK = 'dark',
 }
 
-export interface ThemeState {
+interface ThemeState {
   mode: ThemeMode
   isDarkMode: boolean
 }
 
-export interface ThemeActions {
+interface ThemeActions {
   setTheme: (mode: ThemeMode) => void
 }
+
+export type ThemeStore = ThemeState & ThemeActions

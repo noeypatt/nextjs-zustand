@@ -1,13 +1,14 @@
 import React, { useEffect } from 'react'
-import { usePostsStore } from '@/store'
-import { Grid, List, ListItem, ListItemText, Typography } from '@mui/material'
+import { usePostStore } from '@/store'
+import { CircularProgress, Grid, List, ListItem, ListItemText, Typography } from '@mui/material'
 
 const Post = () => {
-  const { posts, getAllPost } = usePostsStore((state) => state)
+  const { posts, loading, getAllPost } = usePostStore((state) => state)
 
   useEffect(() => {
     getAllPost()
-  }, [getAllPost])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   return (
     <Grid container>
@@ -15,13 +16,19 @@ const Post = () => {
         <Typography variant="h6" component="div">
           Posts
         </Typography>
-        <List>
-          {posts?.slice(0, 10).map((item) => (
-            <ListItem key={item.id}>
-              <ListItemText primary={item.title} secondary={item.body} />
-            </ListItem>
-          ))}
-        </List>
+      </Grid>
+      <Grid item xs={12}>
+        {loading ? (
+          <CircularProgress />
+        ) : (
+          <List>
+            {posts?.slice(0, 10).map((item) => (
+              <ListItem key={item.id}>
+                <ListItemText primary={item.title} secondary={item.body} />
+              </ListItem>
+            ))}
+          </List>
+        )}
       </Grid>
     </Grid>
   )

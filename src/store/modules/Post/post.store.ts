@@ -1,19 +1,17 @@
 import { create } from 'zustand'
 import { devtools } from 'zustand/middleware'
 import { PostService } from '@/services'
-import { PostActions, PostState } from './post.interface'
+import { PostsStore } from './post.interface'
 
-type PostsStore = PostState & PostActions
-
-export const usePostsStore = create<PostsStore, [['zustand/devtools', PostsStore]]>(
+export const usePostStore = create<PostsStore, [['zustand/devtools', PostsStore]]>(
   // devtools: middleware for check state at devtools extension
   // (ex. Redux Devtools Extension) on browser
   devtools(
     (set) => ({
       post: null,
-      posts: [],
+      posts: null,
       loading: false,
-      getPost: async (id) => {
+      getPost: async (id: number) => {
         set({ loading: true })
         try {
           let res = await PostService.get(id)
@@ -42,6 +40,7 @@ export const usePostsStore = create<PostsStore, [['zustand/devtools', PostsStore
     }),
     {
       anonymousActionType: 'posts',
+      store: 'post',
     }
   )
 )

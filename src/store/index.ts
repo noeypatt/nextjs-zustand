@@ -1,3 +1,4 @@
 export * from './modules/Counter'
-export * from './modules/Posts'
+export * from './modules/Post'
+export * from './modules/Photo'
 export * from './modules/Theme'
