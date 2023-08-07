@@ -2,7 +2,7 @@ import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
 import { ThemeMode, ThemeStore } from './theme.interface'
 
-export const useThemeStore = create<ThemeStore, [['zustand/persist', ThemeStore]]>(
+export const useThemeStore = create<ThemeStore>()(
   // persist: persist state for save value into localStorage or sessionStorage
   persist(
     (set) => ({

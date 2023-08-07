@@ -3,7 +3,7 @@ import { create } from 'zustand'
 import { devtools } from 'zustand/middleware'
 import { PhotoStore } from './photo.interface'
 
-export const usePhotoStore = create<PhotoStore, [['zustand/devtools', PhotoStore]]>(
+export const usePhotoStore = create<PhotoStore>()(
   devtools(
     (set) => ({
       photos: [],

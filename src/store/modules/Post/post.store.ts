@@ -3,7 +3,7 @@ import { devtools } from 'zustand/middleware'
 import { PostService } from '@/services'
 import { PostsStore } from './post.interface'
 
-export const usePostStore = create<PostsStore, [['zustand/devtools', PostsStore]]>(
+export const usePostStore = create<PostsStore>()(
   // devtools: middleware for check state at devtools extension
   // (ex. Redux Devtools Extension) on browser
   devtools(
